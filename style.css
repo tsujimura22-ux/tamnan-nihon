@@ -1,0 +1,7 @@
+:root{--bg:#f7f4ee;--ink:#1d1b18;--dim:#6b665e;--line:#ddd6c9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161512;--ink:#ece7dd;--dim:#a39d92;--line:#34312b}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,"Hiragino Sans","Noto Sans Thai",sans-serif}
+main{max-width:720px;margin:0 auto;padding:40px 16px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:18px;margin:28px 0 6px}
+p,li{color:var(--ink)}small,.dim{color:var(--dim)}a{color:inherit}
+nav{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:24px}nav a{margin-right:16px}

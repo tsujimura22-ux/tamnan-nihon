@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connected · Tamnan Nihon</title><link rel="stylesheet" href="style.css"></head><body><main>
+<nav><a href="./">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></nav>
+<h1 id="h">Connecting…</h1>
+<p id="msg" class="dim"></p>
+<p><code id="code" style="word-break:break-all"></code></p>
+<script>
+  var q = new URLSearchParams(location.search);
+  var code = q.get('code'), err = q.get('error');
+  if (code) {
+    document.getElementById('h').textContent = 'TikTok account connected';
+    document.getElementById('msg').textContent = 'Authorization received. The operator copies this one-time code into the Tamnan Nihon tool to finish connecting. It expires in a few minutes.';
+    document.getElementById('code').textContent = code;
+  } else {
+    document.getElementById('h').textContent = 'Not connected';
+    document.getElementById('msg').textContent = err ? ('TikTok returned: ' + err) : 'No authorization code was received.';
+  }
+</script>
+</main></body></html>
