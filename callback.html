@@ -6,7 +6,12 @@
 <script>
   var q = new URLSearchParams(location.search);
   var code = q.get('code'), err = q.get('error');
-  if (code) {
+  var state = q.get('state') || '';
+  if (code && state.indexOf('tamnan-') === 0) {
+    // the operator's own tool runs on this computer; hand the one-time code straight to it
+    document.getElementById('h').textContent = 'Finishing connection…';
+    location.replace('http://localhost:3300/api/tiktok/callback?code=' + encodeURIComponent(code) + '&state=' + encodeURIComponent(state));
+  } else if (code) {
     document.getElementById('h').textContent = 'TikTok account connected';
     document.getElementById('msg').textContent = 'Authorization received. The operator copies this one-time code into the Tamnan Nihon tool to finish connecting. It expires in a few minutes.';
     document.getElementById('code').textContent = code;
